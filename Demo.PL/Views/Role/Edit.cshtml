@@ -1,0 +1,23 @@
+﻿@model RolesViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit @Model.RoleName</h1>
+
+
+<form asp-action="Edit">
+   
+  <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="RoleName"></label>
+    <input  type="text" class="form-control" asp-for="RoleName">
+  
+
+ 
+  
+  
+
+  <button type="submit" class="btn btn-danger">save</button>
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<UserViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Count() > 0)
+{
+
+
+    <h1> Employees</h1>
+
+    <form asp-action="Index">
+         <div class="input-group">
+                <input class="form-control border-end-0 border rounded-pill" type="text" id="example-search-input" name="searchvalue" placeholder="Enter user name">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+    </form>
+    
+<table class="table table-dark table-hover mt-5">
+
+  <thead>
+    <tr>
+     
+      <th scope="col">@Html.DisplayNameFor(E=>E.FName)</th>
+       <th scope="col">@Html.DisplayNameFor(E=>E.LName)</th>
+      <th scope="col">@Html.DisplayNameFor(E=>E.Email)</th>
+      <th scope="col">@Html.DisplayNameFor(E=>E.PhoneNumber)</th>
+        <th scope="col">@Html.DisplayNameFor(E=>E.Roles)</th>
+        
+       
+      <th scope="col">Details</th>
+       <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+            @foreach(var user in Model)
+            {
+                <tr>
+                 
+                    <td>@user.FName</td>
+                     <td>@user.LName</td>
+                      <td>@user.Email</td>
+                       <td>@user.PhoneNumber</td>
+                       <td>@string.Join(",",user.Roles)</td>
+                        <partial name="_ButtonsPartialView" model="@user.Id">
+                     
+                       
+                 
+                      
+
+                      
+                        
+                       
+
+                   
+                </tr>
+            }
+           
+    
+   
+  </tbody>
+</table>
+}
+else
+{
+    <div class="mt-5 bg-info" >
+        <h1>No Users</h1>
+    </div>
+}
+

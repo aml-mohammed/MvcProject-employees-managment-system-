@@ -1,0 +1,48 @@
+﻿@model LogInViewModel
+@{
+    ViewData["Title"] = "LogIn";
+    Layout = "~/Views/Shared/_AccountLayout1.cshtml";
+}
+
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<h2 class="text-uppercase text-center mb-5">LogIn</h2>
+
+              <form asp-action="LogIn">
+
+                <div class="form-outline mb-4">
+                  <input asp-for="Email" id="form3Example1cg" class="form-control form-control-lg" placeholder="Email" />
+                  <span asp-validation-for="Email" class="text-danger"></span>
+                  
+                </div>
+               
+
+               
+
+                <div class="form-outline mb-4">
+                   <input asp-for="Password" id="form3Example1cg" class="form-control form-control-lg" placeholder="Password" />
+                  <span asp-validation-for="Password"  class="text-danger"></span>
+                
+                </div>
+
+              
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                    <label class="">Remember Me
+                  <input class="form-check-input me-2" asp-for="RememberMe"/>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" asp-action="LogIn">LogIn</button>
+                </div>
+
+              </form>
+                <p class="text-center text-muted mt-5 mb-0">Have dont have an account? <a asp-action="Register"
+                    class="fw-bold text-body"><u>Register here</u></a></p>
+                    <p class="text-center text-muted mt-5 mb-0"> <a asp-action="ForgetPassword">Forget Password</a></p>
+
+              @section ValidationScriptSection{
+   <partial name="_ValidationScriptPartial" />
+}

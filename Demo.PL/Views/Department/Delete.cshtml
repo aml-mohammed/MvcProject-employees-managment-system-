@@ -1,0 +1,29 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1> Are you Sure Delete Department @Model.Name</h1>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Delete">
+  <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="Code"></label>
+    <input readonly type="text" class="form-control" asp-for="Code">
+   
+  </div>
+  <div class="mb-3 form-group">
+    <label readonly class="col-form-label" asp-for="Name"></label>
+    <input type="text" class="form-control" asp-for="Name">
+  
+  </div>
+  <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="DateOCreation"></label>
+    <input  readonly class="form-control" asp-for="DateOCreation">
+
+  </div>
+
+  <button value="Delete" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-light">Cancel</a>
+    </form>

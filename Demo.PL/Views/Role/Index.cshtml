@@ -1,0 +1,66 @@
+﻿@model IEnumerable<RolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="Create" class="btn btn-success" >Add New Role</a>
+@if (Model.Count() > 0)
+{
+
+
+    <h1> Roles</h1>
+
+    <form asp-action="Index">
+         <div class="input-group">
+                <input class="form-control border-end-0 border rounded-pill" type="text" id="example-search-input" name="searchvalue" placeholder="Enter role Name">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+    </form>
+    
+<table class="table table-dark table-hover mt-5">
+
+  <thead>
+    <tr>
+     
+      <th scope="col">@Html.DisplayNameFor(E=>E.Id)</th>
+       <th scope="col">@Html.DisplayNameFor(E=>E.RoleName)</th>
+       
+      <th scope="col">Details</th>
+       <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+            @foreach(var role in Model)
+            {
+                <tr>
+                 
+                      <td>@role.Id</td>
+                       <td>@role.RoleName</td>
+                    
+                       
+                        
+                       
+                          <partial name="_ButtonsPartialView" model=@role.Id />
+
+                   
+                </tr>
+            }
+           
+    
+   
+  </tbody>
+</table>
+}
+else
+{
+    <div class="mt-5 bg-info" >
+        <h1>No Roles</h1>
+    </div>
+}
+

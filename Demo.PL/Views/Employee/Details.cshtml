@@ -1,0 +1,47 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Employee @Model.Name</h1>
+
+
+
+  <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="Name"></label>
+    <input readonly type="text" class="form-control" asp-for="Name">
+   
+  </div>
+  <div class="mb-3 form-group">
+    <label  class="col-form-label" asp-for="Age"></label>
+    <input readonly type="text" class="form-control" asp-for="Age">
+  
+  </div>
+  <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="Address"></label>
+    <input  readonly class="form-control" asp-for="Address">
+
+  </div>
+   <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="Email"></label>
+    <input  readonly class="form-control" asp-for="Email">
+
+  </div>
+   <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="PhoneNumber"></label>
+    <input  readonly class="form-control" asp-for="PhoneNumber">
+
+  </div>
+   <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="Salary"></label>
+    <input  readonly class="form-control" asp-for="Salary">
+
+  </div>
+   <div class="mb-3 form-group">
+    <label class="col-form-label" asp-for="IsActive"></label>
+    <input  readonly class="form-control" asp-for="IsActive">
+
+  </div>
+
+  <button value="Edit" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-light">Edit</button>
+    <a asp-action="Index" class="btn btn-light">Back To List</a>

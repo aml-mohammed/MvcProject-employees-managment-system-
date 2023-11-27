@@ -1,0 +1,58 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_AccountLayout1.cshtml";
+}
+<div asp-validation-summary="All" class="text-danger"></div>
+<h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form asp-action="Register">
+
+                <div class="form-outline mb-4">
+                  <input asp-for="FName" id="form3Example1cg" class="form-control form-control-lg" placeholder="First Name" />
+                  <span asp-validation-for="FName" class="text-danger"></span>
+                  
+                </div>
+                <div class="form-outline mb-4">
+                    <input asp-for="LName" id="form3Example1cg" class="form-control form-control-lg" placeholder="Last Name" />
+                  <span asp-validation-for="LName"  class="text-danger"></span>
+                 
+                </div>
+
+                <div class="form-outline mb-4">
+                   <input asp-for="Email" id="form3Example1cg" class="form-control form-control-lg" placeholder="Your Email" />
+                  <span asp-validation-for="Email"  class="text-danger"></span>
+                 
+                </div>
+
+                <div class="form-outline mb-4">
+                   <input asp-for="Password" id="form3Example1cg" class="form-control form-control-lg" placeholder="Password" />
+                  <span asp-validation-for="Password"  class="text-danger"></span>
+                
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input asp-for="ConfirmedPassword" id="form3Example1cg" class="form-control form-control-lg" placeholder="Confirm Password" />
+                  <span asp-validation-for="ConfirmedPassword"  class="text-danger"  ></span>
+
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                    <label class="">Is Agree
+                  <input class="form-check-input me-2" asp-for="IsAgree"/>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" asp-action="Register">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a asp-action="LogIn"
+                    class="fw-bold text-body"><u>LogIn here</u></a></p>
+
+              </form>
+
+              @section ValidationScriptSection{
+   <partial name="_ValidationScriptPartial" />
+}

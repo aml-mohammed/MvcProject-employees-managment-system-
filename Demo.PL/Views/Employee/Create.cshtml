@@ -1,0 +1,21 @@
+﻿
+@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1>Create New Employee</h1>
+<br />
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Create" enctype="multipart/form-data">
+    
+<partial  name="PartialViews/_CreateEditPartial" />
+
+
+</form>
+
+@section ValidationScriptSection{
+   <partial name="_ValidationScriptPartial" />
+}
+
